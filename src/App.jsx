@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import styles from './App.module.scss'
 import coffeePlaceholder from './assets/coffee-placeholder.svg'
-import nabuLogo from './assets/nabu-logo.png'
+import nabuLogo from './assets/nabu-logo.jpg'
 import CafeImage from './components/CafeImage'
 import ProductCard from './components/ProductCard'
 import SectionHeader from './components/SectionHeader'
@@ -165,7 +165,7 @@ function App() {
         <section id="reserva" className={styles.visitCard} aria-label="Información del local">
           <div>
             <p className={styles.eyebrow}>Encontrá nabu.cafe</p>
-            <h3>Tu pausa empieza en Virgen de la Merced.</h3>
+            <h3>Tu pausa empieza en nabu.</h3>
             <p>
               Consultá horarios, disponibilidad y novedades desde Instagram antes de tu visita.
             </p>
