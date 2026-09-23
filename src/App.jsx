@@ -10,7 +10,7 @@ function App() {
     <div className={styles.page}>
       <header className={styles.header}>
         <div className={styles.brand}>
-          <span className={styles.brandMark}>CN</span>
+          <span className={styles.brandMark}>M</span>
           <div>
             <p className={styles.brandName}>{restaurant.name}</p>
             <p className={styles.brandMeta}>{restaurant.slogan}</p>
@@ -23,22 +23,21 @@ function App() {
           <a href="#reserva">Reserva</a>
         </nav>
 
-        <a className={styles.secondaryAction} href="#reserva">
-          Reservar mesa
+        <a className={styles.secondaryAction} href={restaurant.instagram} target="_blank" rel="noreferrer">
+          Instagram
         </a>
       </header>
 
       <main className={styles.main}>
         <section className={styles.hero} aria-labelledby="hero-title">
           <div>
-            <p className={styles.eyebrow}>Café moderno · brunch · reuniones</p>
+            <p className={styles.eyebrow}>Café · brunch · bar · encuentros</p>
             <h1 id="hero-title" className={styles.heroTitle}>
-              Café de barrio para <span className={styles.accent}>momentos reales</span>.
+              Lo cotidiano se disfruta <span className={styles.accent}>en Monet</span>.
             </h1>
             <p className={styles.heroDescription}>
-              Un espacio cálido para empezar el día, compartir un brunch y cerrar la tarde con
-              una buena taza. {restaurant.name} combina cocina sencilla, café de especialidad y
-              una atmósfera pensada para clientes del mundo real.
+              {restaurant.description} Vení a conocer una propuesta gastronómica cercana, con
+              platos frescos y una atmósfera que invita a quedarse.
             </p>
 
             <div className={styles.heroActions}>
@@ -52,16 +51,16 @@ function App() {
 
             <div className={styles.heroDetails}>
               <div className={styles.detailCard}>
-                <span>Horario</span>
+                <span>Horarios</span>
                 <strong>{restaurant.schedule}</strong>
               </div>
               <div className={styles.detailCard}>
-                <span>Ubicación</span>
-                <strong>{restaurant.address}</strong>
+                <span>Sucursales</span>
+                <strong>{restaurant.branches.length} puntos en Tucumán</strong>
               </div>
               <div className={styles.detailCard}>
-                <span>Contacto</span>
-                <strong>{restaurant.phone}</strong>
+                <span>Instagram</span>
+                <strong>{restaurant.instagramHandle}</strong>
               </div>
             </div>
           </div>
@@ -71,20 +70,20 @@ function App() {
               <div className={styles.miniBadge}>☕ especialidad de la casa</div>
               <CafeImage
                 className={styles.heroImage}
-                src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=900&q=85"
+                src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=85"
                 fallbackSrc={coffeePlaceholder}
-                alt="Latte de vainilla servido en una taza de cerámica"
+                alt="Plato fresco de brunch servido en Monet Coffee and Bar"
               />
 
               <div className={styles.visualInfo}>
-                <strong>Latte de vainilla</strong>
-                <span>Preparación cremosa · 12 oz</span>
+                <strong>Brunch en Monet</strong>
+                <span>Fresco · abundante · para compartir</span>
               </div>
             </div>
           </div>
         </section>
 
-        <section className={styles.highlights} aria-label="Destacados del café">
+        <section className={styles.highlights} aria-label="Destacados de Monet">
           {highlights.map((item) => (
             <article key={item.title} className={styles.highlightCard}>
               <h3>{item.title}</h3>
@@ -98,8 +97,8 @@ function App() {
           <SectionHeader
             styles={styles}
             eyebrow="Menú"
-            title="Para cada momento del día"
-            description="Preparaciones pensadas para desayunos rápidos, brunches largos y sobremesas sin apuros."
+            title="Una carta para disfrutar"
+            description="Sabores frescos, platos abundantes y bebidas para acompañar cada momento."
           />
 
           <div className={styles.menuGrid}>
@@ -126,8 +125,8 @@ function App() {
           <SectionHeader
             styles={styles}
             eyebrow="Experiencia"
-            title="Una carta diseñada para acompañar"
-            description="La propuesta combina café de calidad, platos bien hechos y una pausa que se siente auténtica."
+            title="Mucho más que un café"
+            description="La identidad de Monet vive en sus espacios, su carta y esos momentos que dan ganas de repetir."
           />
 
           <div className={styles.storyGrid}>
@@ -142,36 +141,29 @@ function App() {
 
         <section id="reserva" className={styles.visitCard} aria-label="Información del local">
           <div>
-            <p className={styles.eyebrow}>Reserva y visita</p>
-            <h3>Un espacio para prolongar cada encuentro.</h3>
+            <p className={styles.eyebrow}>Encontrá tu Monet</p>
+            <h3>Tres direcciones, la misma forma de disfrutar.</h3>
             <p>
-              Pensado para clientes que buscan una experiencia casual y competente, con un servicio
-              atento y una propuesta visual moderna para un negocio que quiere mostrarse bien.
+              Consultá horarios, disponibilidad y novedades desde Instagram antes de tu visita.
             </p>
           </div>
 
           <div className={styles.visitInfo}>
-            <div className={styles.visitItem}>
-              <span>Dirección</span>
-              <strong>{restaurant.address}</strong>
-            </div>
-            <div className={styles.visitItem}>
-              <span>Horario</span>
-              <strong>{restaurant.schedule}</strong>
-            </div>
-            <div className={styles.visitItem}>
-              <span>Reservas</span>
-              <strong>{restaurant.phone}</strong>
-            </div>
+            {restaurant.branches.map((branch) => (
+              <div className={styles.visitItem} key={branch}>
+                <span>Sucursal Monet</span>
+                <strong>{branch}</strong>
+              </div>
+            ))}
           </div>
         </section>
       </main>
 
       <footer className={styles.footer}>
         <span>
-          <strong>{restaurant.name}</strong> · Café de especialidad y brunch moderno
+          <strong>{restaurant.name}</strong> · Café, brunch y buenos encuentros
         </span>
-        <span>Hecho para mostrar una propuesta premium.</span>
+        <span>Desarrollado por AHX Digital</span>
       </footer>
     </div>
   )
