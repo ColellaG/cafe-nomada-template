@@ -1,16 +1,23 @@
+import { useState } from 'react'
 import styles from './App.module.scss'
 import coffeePlaceholder from './assets/coffee-placeholder.svg'
+import monetLogo from './assets/monet-logo.png'
 import CafeImage from './components/CafeImage'
 import ProductCard from './components/ProductCard'
 import SectionHeader from './components/SectionHeader'
 import { experience, highlights, menuSections, restaurant } from './data/menu'
 
 function App() {
+  const [openMenuId, setOpenMenuId] = useState(menuSections[0].id)
+
   return (
     <div className={styles.page}>
+      <div className={styles.backgroundEmblem} aria-hidden="true">
+        <span />
+      </div>
       <header className={styles.header}>
         <div className={styles.brand}>
-          <span className={styles.brandMark}>M</span>
+          <img className={styles.brandLogo} src={monetLogo} alt="Monet Coffee and Bar" />
           <div>
             <p className={styles.brandName}>{restaurant.name}</p>
             <p className={styles.brandMeta}>{restaurant.slogan}</p>
@@ -56,7 +63,7 @@ function App() {
               </div>
               <div className={styles.detailCard}>
                 <span>Sucursales</span>
-                <strong>{restaurant.branches.length} puntos en Tucumán</strong>
+                <strong>{restaurant.branches.length} sucursales en Tucumán</strong>
               </div>
               <div className={styles.detailCard}>
                 <span>Instagram</span>
@@ -102,22 +109,41 @@ function App() {
           />
 
           <div className={styles.menuGrid}>
-            {menuSections.map((section) => (
-              <article key={section.id} className={styles.menuPanel}>
-                <div className={styles.panelHeader}>
-                  <div>
-                    <h3>{section.title}</h3>
-                    <p>{section.description}</p>
-                  </div>
-                </div>
+            {menuSections.map((section) => {
+              const isOpen = openMenuId === section.id
+              const panelId = `menu-panel-${section.id}`
 
-                <div className={styles.itemsList}>
-                  {section.items.map((item) => (
-                    <ProductCard key={item.name} item={item} styles={styles} />
-                  ))}
-                </div>
-              </article>
-            ))}
+              return (
+                <article
+                  key={section.id}
+                  className={`${styles.menuPanel} ${isOpen ? styles.menuPanelOpen : ''}`}
+                >
+                  <button
+                    className={styles.panelToggle}
+                    type="button"
+                    aria-expanded={isOpen}
+                    aria-controls={panelId}
+                    onClick={() => setOpenMenuId(isOpen ? '' : section.id)}
+                  >
+                    <span className={styles.panelHeader}>
+                      <span>
+                        <span className={styles.panelTitle}>{section.title}</span>
+                        <span className={styles.panelDescription}>{section.description}</span>
+                      </span>
+                      <span className={styles.panelIcon} aria-hidden="true">
+                        {isOpen ? '−' : '+'}
+                      </span>
+                    </span>
+                  </button>
+
+                  <div className={styles.itemsList} id={panelId} hidden={!isOpen}>
+                    {section.items.map((item) => (
+                      <ProductCard key={item.name} item={item} styles={styles} />
+                    ))}
+                  </div>
+                </article>
+              )
+            })}
           </div>
         </section>
 
@@ -150,10 +176,18 @@ function App() {
 
           <div className={styles.visitInfo}>
             {restaurant.branches.map((branch) => (
-              <div className={styles.visitItem} key={branch}>
+              <a
+                className={styles.visitItem}
+                href={branch.mapsUrl}
+                target="_blank"
+                rel="noreferrer"
+                key={branch.address}
+              >
                 <span>Sucursal Monet</span>
-                <strong>{branch}</strong>
-              </div>
+                <strong>{branch.name}</strong>
+                <small>{branch.address}</small>
+                <span className={styles.visitLink}>Ver ubicación ↗</span>
+              </a>
             ))}
           </div>
         </section>

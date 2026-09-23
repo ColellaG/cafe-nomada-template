@@ -9,9 +9,21 @@ export const restaurant = {
   instagram: 'https://www.instagram.com/monet.cafeybar/',
   instagramHandle: '@monet.cafeybar',
   branches: [
-    'Av. Aconquija 750',
-    '25 de Mayo 517',
-    'Av. Perón 1870',
+    {
+      name: 'Monet Yerba Buena',
+      address: 'Av. Aconquija 750',
+      mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Monet+Coffee+Bar+Av.+Aconquija+750+Tucum%C3%A1n',
+    },
+    {
+      name: 'Monet Centro',
+      address: '25 de Mayo 517',
+      mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Monet+Coffee+Bar+25+de+Mayo+517+Tucum%C3%A1n',
+    },
+    {
+      name: 'Monet Av. Perón',
+      address: 'Av. Perón 1870',
+      mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Monet+Coffee+Bar+Av.+Per%C3%B3n+1870+Tucum%C3%A1n',
+    },
   ],
 };
 

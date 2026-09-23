@@ -7,12 +7,49 @@
   --accent-soft: #f4d98b;
   --line: rgba(23, 60, 58, 0.14);
   min-height: 100vh;
+  position: relative;
+  overflow: hidden;
   background:
     radial-gradient(circle at top right, rgba(231, 185, 78, 0.25), transparent 30%),
     linear-gradient(180deg, var(--cream) 0%, var(--paper) 100%);
 }
 
+.backgroundEmblem {
+  position: absolute;
+  z-index: 0;
+  top: 230px;
+  right: -80px;
+  width: 470px;
+  height: 470px;
+  pointer-events: none;
+  opacity: 0.07;
+  transform: rotate(8deg);
+}
+
+.backgroundEmblem::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 32px;
+  width: 350px;
+  height: 350px;
+  border: 76px solid var(--ink);
+  border-radius: 50%;
+}
+
+.backgroundEmblem::after {
+  content: '';
+  position: absolute;
+  top: 408px;
+  left: 78px;
+  width: 258px;
+  height: 64px;
+  background: var(--ink);
+}
+
 .header {
+  position: relative;
+  z-index: 1;
   width: min(1200px, calc(100% - 32px));
   margin: 0 auto;
   padding: 20px 0 16px;
@@ -28,17 +65,20 @@
   gap: 12px;
 }
 
-.brandMark {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: var(--ink);
-  color: var(--accent);
-  font-weight: 700;
-  letter-spacing: 0.08em;
+.brandLogo {
+  display: block;
+  width: 78px;
+  height: 52px;
+  overflow: hidden;
+  flex: 0 0 78px;
+  object-fit: cover;
+  object-position: center 15%;
+}
+
+.main,
+.footer {
+  position: relative;
+  z-index: 1;
 }
 
 .brandName {
@@ -206,6 +246,21 @@
   overflow: hidden;
 }
 
+.emblem {
+  position: absolute;
+  top: 66px;
+  right: 28px;
+  width: 76px;
+  height: 96px;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 12px;
+  opacity: 0.92;
+  mix-blend-mode: multiply;
+  transform: rotate(3deg);
+  box-shadow: 0 10px 24px rgba(23, 60, 58, 0.12);
+}
+
 .miniBadge {
   display: inline-flex;
   align-items: center;
@@ -329,31 +384,76 @@
   border-radius: 28px;
   background: rgba(255, 250, 240, 0.58);
   border: 1px solid var(--line);
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.menuPanelOpen {
+  background: rgba(255, 250, 240, 0.78);
+  border-color: rgba(23, 60, 58, 0.24);
+}
+
+.panelToggle {
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.panelToggle:focus-visible {
+  outline: 3px solid rgba(231, 185, 78, 0.65);
+  outline-offset: 6px;
+  border-radius: 12px;
 }
 
 .panelHeader {
   display: flex;
-  align-items: end;
+  align-items: center;
   justify-content: space-between;
   gap: 16px;
-  margin-bottom: 18px;
 }
 
-.panelHeader h3 {
-  margin: 0;
+.panelTitle,
+.panelDescription {
+  display: block;
+}
+
+.panelTitle {
   font-size: 1.5rem;
   color: var(--ink);
 }
 
-.panelHeader p {
+.panelDescription {
   margin: 5px 0 0;
   color: var(--ink-soft);
   line-height: 1.5;
 }
 
+.panelIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 34px;
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(23, 60, 58, 0.2);
+  border-radius: 50%;
+  color: var(--ink);
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
 .itemsList {
   display: grid;
   gap: 12px;
+  margin-top: 18px;
+}
+
+.itemsList[hidden] {
+  display: none;
 }
 
 .productCard {
@@ -477,6 +577,18 @@
   border-radius: 16px;
   background: rgba(255, 250, 240, 0.72);
   color: var(--ink);
+  text-decoration: none;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+a.visitItem:hover {
+  background: rgba(255, 250, 240, 0.94);
+  transform: translateY(-2px);
+}
+
+a.visitItem:focus-visible {
+  outline: 3px solid rgba(23, 60, 58, 0.45);
+  outline-offset: 3px;
 }
 
 .visitItem span {
@@ -491,6 +603,21 @@
   display: block;
   margin-top: 6px;
   font-size: 1rem;
+}
+
+.visitItem small {
+  display: block;
+  margin-top: 4px;
+  color: var(--ink-soft);
+  font-size: 0.82rem;
+}
+
+.visitLink {
+  display: block;
+  margin-top: 10px;
+  color: #a47716;
+  font-size: 0.75rem;
+  font-weight: 700;
 }
 
 .footer {
@@ -547,12 +674,23 @@
     display: none;
   }
 
+  .brandLogo {
+    width: 70px;
+    flex-basis: 70px;
+  }
+
   .heroDetails {
     grid-template-columns: 1fr;
   }
 
   .heroImage {
     height: 270px;
+  }
+
+  .emblem {
+    right: 22px;
+    width: 64px;
+    height: 82px;
   }
 
   .detailCard,
