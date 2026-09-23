@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1100" role="img" aria-labelledby="title desc">
+  <title id="title">Taza de café de especialidad</title>
+  <desc id="desc">Ilustración cálida de una taza de café sobre una mesa de madera.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f7efe8"/>
+      <stop offset="1" stop-color="#d6b38f"/>
+    </linearGradient>
+    <linearGradient id="coffee" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#b17a54"/>
+      <stop offset="1" stop-color="#553425"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="1100" fill="url(#background)"/>
+  <circle cx="700" cy="180" r="180" fill="#fff7ef" opacity=".42"/>
+  <path d="M0 820c210-110 380-100 560-22 128 56 238 68 340 18v284H0Z" fill="#6c4330" opacity=".9"/>
+  <ellipse cx="442" cy="720" rx="260" ry="88" fill="#3e281f" opacity=".18"/>
+  <path d="M245 480h390v270c0 112-86 190-195 190s-195-78-195-190Z" fill="#fbf5ed"/>
+  <path d="M283 518h314v225c0 78-70 132-157 132s-157-54-157-132Z" fill="url(#coffee)"/>
+  <path d="M635 555c110-18 137 59 93 123-25 37-57 55-93 59" fill="none" stroke="#fbf5ed" stroke-width="38"/>
+  <path d="M355 390c-38-86 74-90 32-183M463 390c-38-86 74-90 32-183M570 390c-38-86 74-90 32-183" fill="none" stroke="#86654f" stroke-width="13" stroke-linecap="round" opacity=".55"/>
+  <text x="450" y="1020" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" letter-spacing="8" fill="#fff7ef">CAFÉ NÓMADA</text>
+</svg>
