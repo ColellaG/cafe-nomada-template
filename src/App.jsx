@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import styles from './App.module.scss'
 import coffeePlaceholder from './assets/coffee-placeholder.svg'
-import monetLogo from './assets/monet-logo.png'
+import nabuLogo from './assets/nabu-logo.png'
 import CafeImage from './components/CafeImage'
 import ProductCard from './components/ProductCard'
 import SectionHeader from './components/SectionHeader'
@@ -12,12 +12,9 @@ function App() {
 
   return (
     <div className={styles.page}>
-      <div className={styles.backgroundEmblem} aria-hidden="true">
-        <span />
-      </div>
       <header className={styles.header}>
         <div className={styles.brand}>
-          <img className={styles.brandLogo} src={monetLogo} alt="Monet Coffee and Bar" />
+          <img className={styles.brandLogo} src={nabuLogo} alt="nabu.cafe" />
           <div>
             <p className={styles.brandName}>{restaurant.name}</p>
             <p className={styles.brandMeta}>{restaurant.slogan}</p>
@@ -30,21 +27,21 @@ function App() {
           <a href="#reserva">Reserva</a>
         </nav>
 
-        <a className={styles.secondaryAction} href={restaurant.instagram} target="_blank" rel="noreferrer">
-          Instagram
+        <a className={styles.secondaryAction} href={`https://wa.me/${restaurant.phone.replace(/\D/g, '')}`} target="_blank" rel="noreferrer">
+          WhatsApp
         </a>
       </header>
 
       <main className={styles.main}>
         <section className={styles.hero} aria-labelledby="hero-title">
           <div>
-            <p className={styles.eyebrow}>Café · brunch · bar · encuentros</p>
+            <p className={styles.eyebrow}>Café de especialidad · calma · encuentros</p>
             <h1 id="hero-title" className={styles.heroTitle}>
-              Lo cotidiano se disfruta <span className={styles.accent}>en Monet</span>.
+              Una pausa pensada <span className={styles.accent}>con calma</span>.
             </h1>
             <p className={styles.heroDescription}>
-              {restaurant.description} Vení a conocer una propuesta gastronómica cercana, con
-              platos frescos y una atmósfera que invita a quedarse.
+              {restaurant.description} Vení a conocer una propuesta cercana, con sabores
+              simples, café rico y una atmósfera que invita a quedarse.
             </p>
 
             <div className={styles.heroActions}>
@@ -63,7 +60,7 @@ function App() {
               </div>
               <div className={styles.detailCard}>
                 <span>Sucursales</span>
-                <strong>{restaurant.branches.length} sucursales en Tucumán</strong>
+                <strong>{restaurant.branches[0].address}</strong>
               </div>
               <div className={styles.detailCard}>
                 <span>Instagram</span>
@@ -79,18 +76,18 @@ function App() {
                 className={styles.heroImage}
                 src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=85"
                 fallbackSrc={coffeePlaceholder}
-                alt="Plato fresco de brunch servido en Monet Coffee and Bar"
+                alt="Plato fresco de brunch servido en nabu.cafe"
               />
 
               <div className={styles.visualInfo}>
-                <strong>Brunch en Monet</strong>
-                <span>Fresco · abundante · para compartir</span>
+                <strong>Una pausa nabu</strong>
+                <span>Calma · café · algo rico</span>
               </div>
             </div>
           </div>
         </section>
 
-        <section className={styles.highlights} aria-label="Destacados de Monet">
+        <section className={styles.highlights} aria-label="Destacados de nabu.cafe">
           {highlights.map((item) => (
             <article key={item.title} className={styles.highlightCard}>
               <h3>{item.title}</h3>
@@ -104,8 +101,8 @@ function App() {
           <SectionHeader
             styles={styles}
             eyebrow="Menú"
-            title="Una carta para disfrutar"
-            description="Sabores frescos, platos abundantes y bebidas para acompañar cada momento."
+            title="Una carta para disfrutar sin prisa"
+            description="Café, brunch y pastelería para acompañar cada momento con calma."
           />
 
           <div className={styles.menuGrid}>
@@ -151,8 +148,8 @@ function App() {
           <SectionHeader
             styles={styles}
             eyebrow="Experiencia"
-            title="Mucho más que un café"
-            description="La identidad de Monet vive en sus espacios, su carta y esos momentos que dan ganas de repetir."
+            title="Un café pensado con calma"
+            description="La identidad de nabu.cafe está en los detalles, la pausa y los encuentros que se disfrutan de verdad."
           />
 
           <div className={styles.storyGrid}>
@@ -167,8 +164,8 @@ function App() {
 
         <section id="reserva" className={styles.visitCard} aria-label="Información del local">
           <div>
-            <p className={styles.eyebrow}>Encontrá tu Monet</p>
-            <h3>Tres direcciones, la misma forma de disfrutar.</h3>
+            <p className={styles.eyebrow}>Encontrá nabu.cafe</p>
+            <h3>Tu pausa empieza en Virgen de la Merced.</h3>
             <p>
               Consultá horarios, disponibilidad y novedades desde Instagram antes de tu visita.
             </p>
@@ -183,7 +180,7 @@ function App() {
                 rel="noreferrer"
                 key={branch.address}
               >
-                <span>Sucursal Monet</span>
+                <span>Visitanos</span>
                 <strong>{branch.name}</strong>
                 <small>{branch.address}</small>
                 <span className={styles.visitLink}>Ver ubicación ↗</span>
@@ -195,7 +192,7 @@ function App() {
 
       <footer className={styles.footer}>
         <span>
-          <strong>{restaurant.name}</strong> · Café, brunch y buenos encuentros
+          <strong>{restaurant.name}</strong> · Café pensado con calma
         </span>
         <span>Desarrollado por AHX Digital</span>
       </footer>

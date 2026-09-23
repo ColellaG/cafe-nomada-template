@@ -1,50 +1,17 @@
 .page {
-  --ink: #173c3a;
-  --ink-soft: #315958;
-  --cream: #fffaf0;
-  --paper: #f8f1e4;
-  --accent: #e7b94e;
-  --accent-soft: #f4d98b;
-  --line: rgba(23, 60, 58, 0.14);
+  --ink: #385539;
+  --ink-soft: #607260;
+  --cream: #fffdf4;
+  --paper: #f7f3df;
+  --accent: #c0a036;
+  --accent-soft: #fbf3cd;
+  --line: rgba(56, 85, 57, 0.16);
   min-height: 100vh;
   position: relative;
   overflow: hidden;
   background:
-    radial-gradient(circle at top right, rgba(231, 185, 78, 0.25), transparent 30%),
+    radial-gradient(circle at top right, rgba(192, 160, 54, 0.2), transparent 30%),
     linear-gradient(180deg, var(--cream) 0%, var(--paper) 100%);
-}
-
-.backgroundEmblem {
-  position: absolute;
-  z-index: 0;
-  top: 230px;
-  right: -80px;
-  width: 470px;
-  height: 470px;
-  pointer-events: none;
-  opacity: 0.07;
-  transform: rotate(8deg);
-}
-
-.backgroundEmblem::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 32px;
-  width: 350px;
-  height: 350px;
-  border: 76px solid var(--ink);
-  border-radius: 50%;
-}
-
-.backgroundEmblem::after {
-  content: '';
-  position: absolute;
-  top: 408px;
-  left: 78px;
-  width: 258px;
-  height: 64px;
-  background: var(--ink);
 }
 
 .header {
@@ -127,7 +94,7 @@
   }
 
   &:focus-visible {
-    outline: 3px solid rgba(231, 185, 78, 0.65);
+    outline: 3px solid rgba(192, 160, 54, 0.65);
     outline-offset: 3px;
   }
 }
@@ -135,12 +102,12 @@
 .primaryAction {
   background: var(--ink);
   color: var(--cream);
-  box-shadow: 0 12px 30px rgba(23, 60, 58, 0.2);
+  box-shadow: 0 12px 30px rgba(56, 85, 57, 0.2);
   text-decoration: none;
 }
 
 .secondaryAction {
-  background: rgba(255, 250, 240, 0.65);
+  background: rgba(255, 253, 244, 0.72);
   border: 1px solid var(--line);
   color: var(--ink);
   text-decoration: none;
@@ -165,7 +132,7 @@
   font-size: 0.75rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #a47716;
+  color: var(--accent);
   font-weight: 700;
 }
 
@@ -330,7 +297,7 @@
 .highlightCard strong {
   display: inline-block;
   margin-top: 14px;
-  color: #a47716;
+  color: var(--accent);
   font-size: 1.5rem;
 }
 
@@ -355,7 +322,7 @@
   font-size: 0.72rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #a47716;
+  color: var(--accent);
   font-weight: 700;
 }
 
@@ -615,7 +582,7 @@ a.visitItem:focus-visible {
 .visitLink {
   display: block;
   margin-top: 10px;
-  color: #a47716;
+  color: var(--accent);
   font-size: 0.75rem;
   font-weight: 700;
 }
