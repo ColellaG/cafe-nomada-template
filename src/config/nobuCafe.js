@@ -3,6 +3,7 @@ import nabuLogo from '../assets/nabu-logo.jpg'
 const nobuCafe = {
   id: 'nobu-cafe',
   selectorLabel: 'NABU · GRID',
+  selectorShortLabel: 'NABU',
   name: 'nabu.cafe',
   shortName: 'NABU',
   layout: 'cards',

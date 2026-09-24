@@ -3,6 +3,9 @@
   z-index: 5;
   right: 18px;
   bottom: 18px;
+  width: max-content;
+  max-width: calc(100vw - 24px);
+  overflow: hidden;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -25,9 +28,16 @@
 .options {
   display: flex;
   gap: 3px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.options::-webkit-scrollbar {
+  display: none;
 }
 
 .options button {
+  flex: 0 0 auto;
   border: 0;
   border-radius: 999px;
   padding: 0.48rem 0.65rem;
@@ -37,6 +47,10 @@
   font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.04em;
+}
+
+.shortLabel {
+  display: none;
 }
 
 .options button:hover,
@@ -62,5 +76,13 @@
 
   .label {
     display: none;
+  }
+
+  .fullLabel {
+    display: none;
+  }
+
+  .shortLabel {
+    display: inline;
   }
 }

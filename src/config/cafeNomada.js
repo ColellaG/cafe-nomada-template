@@ -1,6 +1,7 @@
 const cafeNomada = {
   id: 'cafe-nomada',
   selectorLabel: 'BASE DEMO',
+  selectorShortLabel: 'BASE',
   name: 'Café Nómada',
   shortName: 'NÓMADA',
   layout: 'accordion',

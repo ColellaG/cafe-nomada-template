@@ -3,6 +3,7 @@ import monetLogo from '../assets/monet-logo.png'
 const monet = {
   id: 'monet',
   selectorLabel: 'MONET',
+  selectorShortLabel: 'MONET',
   name: 'Monet Coffee & Bar',
   shortName: 'MONET',
   layout: 'accordion',

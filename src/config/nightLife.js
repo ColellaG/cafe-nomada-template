@@ -1,6 +1,7 @@
 const nightLife = {
   id: 'night-life',
   selectorLabel: 'NIGHT LIFE · LIST',
+  selectorShortLabel: 'NIGHT',
   name: 'Lumen Bar',
   shortName: 'LUMEN',
   layout: 'list',
