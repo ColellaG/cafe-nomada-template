@@ -49,7 +49,7 @@ const nightLife = {
   },
   assets: {
     logo: null,
-    hero: 'https://images.unsplash.com/photo-1513558161293-ccefba6c8c2d?auto=format&fit=crop&w=900&q=85',
+    hero: 'https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&w=900&q=85',
     fallback: 'coffee',
   },
   highlights: [
