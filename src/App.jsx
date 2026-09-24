@@ -38,9 +38,10 @@ function App() {
   const contactHref = restaurant.phone.startsWith('+')
     ? `https://wa.me/${restaurant.phone.replace(/\D/g, '')}`
     : restaurant.instagram
+  const pageClassName = `${styles.page} ${styles[`${activeTheme.layout}Layout`] ?? ''}`
 
   return (
-    <div className={styles.page} style={buildThemeStyle(activeTheme)}>
+    <div className={pageClassName} style={buildThemeStyle(activeTheme)}>
       <div className={styles.backgroundEmblem} aria-hidden="true">
         <span />
       </div>
@@ -119,25 +120,73 @@ function App() {
 
         <section id="menu" className={styles.menuSection}>
           <SectionHeader styles={styles} eyebrow={content.menuEyebrow} title={content.menuTitle} description={content.menuDescription} />
-          <div className={styles.menuGrid}>
-            {activeTheme.menuSections.map((section) => {
-              const isOpen = openMenuId === section.id
-              const panelId = `menu-panel-${section.id}`
-              return (
-                <article key={section.id} className={`${styles.menuPanel} ${isOpen ? styles.menuPanelOpen : ''}`}>
-                  <button className={styles.panelToggle} type="button" aria-expanded={isOpen} aria-controls={panelId} onClick={() => setOpenMenuId(isOpen ? '' : section.id)}>
-                    <span className={styles.panelHeader}>
-                      <span><span className={styles.panelTitle}>{section.title}</span><span className={styles.panelDescription}>{section.description}</span></span>
-                      <span className={styles.panelIcon} aria-hidden="true">{isOpen ? '−' : '+'}</span>
-                    </span>
-                  </button>
-                  <div className={styles.itemsList} id={panelId} hidden={!isOpen}>
-                    {section.items.map((item) => <ProductCard key={item.name} item={item} styles={styles} />)}
+          {activeTheme.layout === 'cards' ? (
+            <div className={styles.menuCardsGrid}>
+              {activeTheme.menuSections.flatMap((section) => section.items).map((item) => (
+                <article key={item.name} className={styles.imageProductCard}>
+                  <CafeImage className={styles.productImage} src={item.image} fallbackSrc={coffeePlaceholder} alt={item.name} />
+                  <div className={styles.imageProductBody}>
+                    <div className={styles.productHeader}>
+                      <h3>{item.name}</h3>
+                      <span className={styles.productPrice}>{item.price}</span>
+                    </div>
+                    <p>{item.description}</p>
+                    <ul className={styles.productTags} aria-label={`${item.name} tags`}>
+                      {item.tags.map((tag) => <li key={tag}>{tag}</li>)}
+                    </ul>
                   </div>
                 </article>
-              )
-            })}
-          </div>
+              ))}
+            </div>
+          ) : activeTheme.layout === 'list' ? (
+            <div className={styles.menuList}>
+              {activeTheme.menuSections.map((section) => (
+                <section key={section.id} className={styles.menuListSection} aria-labelledby={`list-${section.id}`}>
+                  <div className={styles.menuListHeading}>
+                    <div>
+                      <span className={styles.menuListKicker}>/ 0{activeTheme.menuSections.indexOf(section) + 1}</span>
+                      <h3 id={`list-${section.id}`}>{section.title}</h3>
+                    </div>
+                    <p>{section.description}</p>
+                  </div>
+                  <div className={styles.menuListItems}>
+                    {section.items.map((item) => (
+                      <article key={item.name} className={styles.menuListItem}>
+                        <div>
+                          <h4>{item.name}</h4>
+                          <p>{item.description}</p>
+                        </div>
+                        <div className={styles.menuListMeta}>
+                          <span>{item.tags[0]}</span>
+                          <strong>{item.price}</strong>
+                        </div>
+                      </article>
+                    ))}
+                  </div>
+                </section>
+              ))}
+            </div>
+          ) : (
+            <div className={styles.menuGrid}>
+              {activeTheme.menuSections.map((section) => {
+                const isOpen = openMenuId === section.id
+                const panelId = `menu-panel-${section.id}`
+                return (
+                  <article key={section.id} className={`${styles.menuPanel} ${isOpen ? styles.menuPanelOpen : ''}`}>
+                    <button className={styles.panelToggle} type="button" aria-expanded={isOpen} aria-controls={panelId} onClick={() => setOpenMenuId(isOpen ? '' : section.id)}>
+                      <span className={styles.panelHeader}>
+                        <span><span className={styles.panelTitle}>{section.title}</span><span className={styles.panelDescription}>{section.description}</span></span>
+                        <span className={styles.panelIcon} aria-hidden="true">{isOpen ? '−' : '+'}</span>
+                      </span>
+                    </button>
+                    <div className={styles.itemsList} id={panelId} hidden={!isOpen}>
+                      {section.items.map((item) => <ProductCard key={item.name} item={item} styles={styles} />)}
+                    </div>
+                  </article>
+                )
+              })}
+            </div>
+          )}
         </section>
 
         <section id="experiencia" className={styles.storySection}>

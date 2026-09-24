@@ -2,8 +2,10 @@ import nabuLogo from '../assets/nabu-logo.jpg'
 
 const nobuCafe = {
   id: 'nobu-cafe',
+  selectorLabel: 'NABU · GRID',
   name: 'nabu.cafe',
   shortName: 'NABU',
+  layout: 'cards',
   theme: {
     page: '#68775b',
     ink: '#fffdf4',
@@ -62,8 +64,8 @@ const nobuCafe = {
       title: 'Desayunos y brunch',
       description: 'Opciones frescas para empezar el día con calma.',
       items: [
-        { name: 'Tostada de palta', description: 'Pan artesanal, palta, huevo y toppings de estación.', price: 'Consultar', tags: ['Favorita'] },
-        { name: 'Bowl de frutas', description: 'Frutas frescas, granola y una base cremosa.', price: 'Consultar', tags: ['Fresco'] },
+        { name: 'Tostada de palta', description: 'Pan artesanal, palta, huevo y toppings de estación.', price: 'Consultar', tags: ['Favorita'], image: 'https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=700&q=85' },
+        { name: 'Bowl de frutas', description: 'Frutas frescas, granola y una base cremosa.', price: 'Consultar', tags: ['Fresco'], image: 'https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?auto=format&fit=crop&w=700&q=85' },
       ],
     },
     {
@@ -71,8 +73,8 @@ const nobuCafe = {
       title: 'Café y bebidas',
       description: 'Clásicos preparados para una pausa tranquila.',
       items: [
-        { name: 'Flat white', description: 'Espresso y leche texturizada en una taza equilibrada.', price: 'Consultar', tags: ['Especialidad'] },
-        { name: 'Limonada natural', description: 'Cítrica, fresca y perfecta para los días cálidos.', price: 'Consultar', tags: ['Refrescante'] },
+        { name: 'Flat white', description: 'Espresso y leche texturizada en una taza equilibrada.', price: 'Consultar', tags: ['Especialidad'], image: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=700&q=85' },
+        { name: 'Limonada natural', description: 'Cítrica, fresca y perfecta para los días cálidos.', price: 'Consultar', tags: ['Refrescante'], image: 'https://images.unsplash.com/photo-1523677011781-c91d1bbe2f8f?auto=format&fit=crop&w=700&q=85' },
       ],
     },
   ],

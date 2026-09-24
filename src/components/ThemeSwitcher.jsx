@@ -13,7 +13,7 @@ function ThemeSwitcher({ themes, activeThemeId, onChange }) {
             aria-pressed={activeThemeId === theme.id}
             onClick={() => onChange(theme.id)}
           >
-            {theme.shortName}
+            {theme.selectorLabel ?? theme.shortName}
           </button>
         ))}
       </div>

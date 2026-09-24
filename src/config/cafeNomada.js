@@ -1,7 +1,9 @@
 const cafeNomada = {
   id: 'cafe-nomada',
+  selectorLabel: 'BASE DEMO',
   name: 'Café Nómada',
   shortName: 'NÓMADA',
+  layout: 'accordion',
   theme: {
     page: '#f7f2ee',
     ink: '#3d2922',

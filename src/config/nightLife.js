@@ -1,0 +1,97 @@
+const nightLife = {
+  id: 'night-life',
+  selectorLabel: 'NIGHT LIFE · LIST',
+  name: 'Lumen Bar',
+  shortName: 'LUMEN',
+  layout: 'list',
+  theme: {
+    page: '#0b0f19',
+    ink: '#f3f7ff',
+    inkSoft: '#a9b6ca',
+    cream: '#111827',
+    paper: '#151d2d',
+    accent: '#16d9e3',
+    accentSoft: '#ff7b45',
+    line: 'rgba(166, 189, 224, 0.2)',
+  },
+  restaurant: {
+    slogan: 'Noches intensas, tragos precisos',
+    description: 'Un bar de autor donde la luz baja, la música y los sabores se encuentran.',
+    schedule: 'Jue a sáb · 19:00 a 03:00',
+    phone: '+54 9 381 555 0199',
+    instagram: 'https://www.instagram.com/',
+    instagramHandle: '@lumen.bar',
+    branches: [
+      { name: 'Lumen Bar', address: 'Tucumán, Argentina', mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Lumen+Bar+Tucuman' },
+    ],
+  },
+  content: {
+    eyebrow: 'Cocktails · tapas · sesiones nocturnas',
+    heroTitle: 'La noche empieza',
+    heroAccent: 'en Lumen',
+    heroDescription: 'Tragos de autor, cocina para compartir y una atmósfera eléctrica para dejar que la noche avance.',
+    visualBadge: '✦ after dark selection',
+    visualTitle: 'Midnight service',
+    visualMeta: 'Cítrico · ahumado · preciso',
+    menuEyebrow: 'Carta nocturna',
+    menuTitle: 'Elegí tu próximo momento',
+    menuDescription: 'Una lista directa para leer rápido, pedir sin vueltas y volver a la mesa.',
+    experienceEyebrow: 'La noche',
+    experienceTitle: 'Baja la luz, sube la energía',
+    experienceDescription: 'Un sistema visual oscuro y contrastado, pensado para bares que quieren una presencia memorable.',
+    visitEyebrow: 'Encontrá Lumen',
+    visitTitle: 'Tu mesa, después del atardecer.',
+    visitDescription: 'Reservas, novedades y sesiones especiales en nuestras redes.',
+    branchLabel: 'Bar nocturno',
+    branchNamePrefix: 'Lumen Bar',
+    heroAlt: 'Cocktail de autor servido en un bar con iluminación tenue',
+  },
+  assets: {
+    logo: null,
+    hero: 'https://images.unsplash.com/photo-1513558161293-ccefba6c8c2d?auto=format&fit=crop&w=900&q=85',
+    fallback: 'coffee',
+  },
+  highlights: [
+    { title: 'Cocktails de autor', value: 'Precisión', description: 'Recetas equilibradas, hielo cuidado y perfiles para descubrir.' },
+    { title: 'Cocina nocturna', value: 'Para compartir', description: 'Tapas y bocados que acompañan cada ronda.' },
+    { title: 'Sesiones Lumen', value: 'Hasta las 03:00', description: 'Música, luz y una energía que cambia con la noche.' },
+  ],
+  menuSections: [
+    {
+      id: 'cocktails',
+      title: 'Tragos de autor',
+      description: 'Combinaciones intensas, frescas y de temporada.',
+      items: [
+        { name: 'Cyan Collins', description: 'Gin, cítricos, cordial de pepino y soda.', price: '$Consultar', tags: ['Fresco'] },
+        { name: 'Orange Afterglow', description: 'Bourbon, naranja quemada, miel y bitter.', price: '$Consultar', tags: ['Ahumado'] },
+        { name: 'Midnight Negroni', description: 'Gin, vermut rojo y bitter con un final profundo.', price: '$Consultar', tags: ['Clásico'] },
+      ],
+    },
+    {
+      id: 'tapas',
+      title: 'Tapas para compartir',
+      description: 'Bocados precisos para acompañar la conversación.',
+      items: [
+        { name: 'Papas Lumen', description: 'Papas crocantes, alioli cítrico y hierbas.', price: '$Consultar', tags: ['Para compartir'] },
+        { name: 'Bao de cerdo', description: 'Pan suave, cerdo glaseado y encurtidos.', price: '$Consultar', tags: ['Intenso'] },
+        { name: 'Tabla nocturna', description: 'Quesos, fiambres, frutos secos y conservas.', price: '$Consultar', tags: ['Mesa'] },
+      ],
+    },
+    {
+      id: 'drafts',
+      title: 'Cervezas en canilla',
+      description: 'Selección rotativa de productores locales.',
+      items: [
+        { name: 'IPA cítrica', description: 'Amargor medio, pomelo y final limpio.', price: '$Consultar', tags: ['Canilla 01'] },
+        { name: 'Honey ale', description: 'Dorada, amable y con dulzor sutil.', price: '$Consultar', tags: ['Canilla 02'] },
+      ],
+    },
+  ],
+  experience: [
+    { title: 'Luz baja, detalle alto', text: 'Una estética profunda con acentos de neón para que cada producto tenga su propio momento.' },
+    { title: 'La barra es protagonista', text: 'Una carta categorizada para decidir rápido, pedir mejor y seguir disfrutando.' },
+    { title: 'La noche tiene ritmo', text: 'Sesiones, encuentros y una identidad preparada para cambiar de intensidad.' },
+  ],
+}
+
+export default nightLife

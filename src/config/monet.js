@@ -2,8 +2,10 @@ import monetLogo from '../assets/monet-logo.png'
 
 const monet = {
   id: 'monet',
+  selectorLabel: 'MONET',
   name: 'Monet Coffee & Bar',
   shortName: 'MONET',
+  layout: 'accordion',
   theme: {
     page: '#fffaf0',
     ink: '#173c3a',
