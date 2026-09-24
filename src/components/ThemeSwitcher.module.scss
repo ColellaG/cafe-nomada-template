@@ -12,7 +12,7 @@
   padding: 6px;
   border: 1px solid var(--theme-line);
   border-radius: 999px;
-  background: var(--theme-cream);
+  background: var(--theme-page);
   color: var(--theme-ink);
   box-shadow: 0 12px 30px rgba(24, 34, 25, 0.16);
 }
@@ -56,6 +56,7 @@
 .options button:hover,
 .options button:focus-visible {
   background: var(--theme-accent-soft);
+  color: var(--theme-ink);
 }
 
 .options button:focus-visible {
@@ -64,8 +65,8 @@
 }
 
 .options .active {
-  background: var(--theme-ink);
-  color: var(--theme-cream);
+  background: var(--theme-accent);
+  color: var(--theme-page);
 }
 
 @media (max-width: 560px) {
